@@ -1,6 +1,7 @@
 package io.openliberty.guides.resources;
 
 import io.openliberty.guides.models.User;
+import io.openliberty.guides.repositories.UserRepository;
 import io.openliberty.guides.services.UserService;
 
 import org.eclipse.microprofile.jwt.Claim;
@@ -21,22 +22,24 @@ public class UserResource {
     @Inject
     UserService userService;
 
-    @Inject
+    /*@Inject
     @Claim("groups")
-    private JsonArray roles;
+    private JsonArray roles;*/
 
+    /*@Inject
+    private JsonWebToken jwt;*/
     @Inject
-    private JsonWebToken jwt;
-
+    UserRepository userRepository;
     // GET: Obtener todos los usuarios
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed({ "admin" })
+    //@RolesAllowed({ "admin" })
     public Response getUsers(@Context HttpHeaders headers) {
-        System.out.println("Roles: " + roles);
-        System.out.println("JWT: " + jwt);
-        return Response.ok(userService.getUsers()).build();
+      //  System.out.println("Roles: " + roles);
+        //System.out.println("JWT: " + jwt);
+        //System.out.println(userRepository.findAll());
+        return Response.ok(userRepository.findByEmail("victor_villafane@microgestion.com")).build();
     }
 
     // GET: Obtener un usuario por ID

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+    <dir sourceOnDisk="/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/src/main/webapp" targetInArchive="/"/>
+    <dir sourceOnDisk="/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/classes" targetInArchive="/WEB-INF/classes"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar" targetInArchive="/WEB-INF/lib/jackson-databind-2.15.2.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar" targetInArchive="/WEB-INF/lib/jackson-annotations-2.15.2.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.2/jackson-core-2.15.2.jar" targetInArchive="/WEB-INF/lib/jackson-core-2.15.2.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/mongodb/mongodb-driver-sync/5.2.1/mongodb-driver-sync-5.2.1.jar" targetInArchive="/WEB-INF/lib/mongodb-driver-sync-5.2.1.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/mongodb/bson/5.2.1/bson-5.2.1.jar" targetInArchive="/WEB-INF/lib/bson-5.2.1.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/mongodb/mongodb-driver-core/5.2.1/mongodb-driver-core-5.2.1.jar" targetInArchive="/WEB-INF/lib/mongodb-driver-core-5.2.1.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/mongodb/bson-record-codec/5.2.1/bson-record-codec-5.2.1.jar" targetInArchive="/WEB-INF/lib/bson-record-codec-5.2.1.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/jakarta/data/jakarta.data-api/1.0.0/jakarta.data-api-1.0.0.jar" targetInArchive="/WEB-INF/lib/jakarta.data-api-1.0.0.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/jakarta/nosql/jakarta.nosql-api/1.0.0-M1/jakarta.nosql-api-1.0.0-M1.jar" targetInArchive="/WEB-INF/lib/jakarta.nosql-api-1.0.0-M1.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/mapping/jnosql-mapping-key-value/1.1.4/jnosql-mapping-key-value-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-mapping-key-value-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/communication/jnosql-communication-key-value/1.1.4/jnosql-communication-key-value-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-communication-key-value-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/communication/jnosql-communication-query/1.1.4/jnosql-communication-query-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-communication-query-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/communication/jnosql-communication-core/1.1.4/jnosql-communication-core-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-communication-core-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/antlr/antlr4-runtime/4.13.2/antlr4-runtime-4.13.2.jar" targetInArchive="/WEB-INF/lib/antlr4-runtime-4.13.2.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/mapping/jnosql-mapping-core/1.1.4/jnosql-mapping-core-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-mapping-core-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/mapping/jnosql-mapping-api-core/1.1.4/jnosql-mapping-api-core-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-mapping-api-core-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/org/eclipse/jnosql/mapping/jnosql-mapping-reflection/1.1.4/jnosql-mapping-reflection-1.1.4.jar" targetInArchive="/WEB-INF/lib/jnosql-mapping-reflection-1.1.4.jar"/>
+    <file sourceOnDisk="/home/rovi/.m2/repository/io/github/classgraph/classgraph/4.8.179/classgraph-4.8.179.jar" targetInArchive="/WEB-INF/lib/classgraph-4.8.179.jar"/>
+    <file sourceOnDisk="/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/tmp/META-INF/MANIFEST.MF" targetInArchive="/META-INF/MANIFEST.MF"/>
+</archive>

@@ -1,0 +1,121 @@
+********************************************************************************
+product = Open Liberty 25.0.0.1 (wlp-1.0.97.cl250120250113-0302)
+wlp.install.dir = /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/
+java.home = /usr/lib/jvm/java-21-openjdk-amd64
+java.version = 21.0.5
+java.runtime = OpenJDK Runtime Environment (21.0.5+11-Ubuntu-1ubuntu124.04)
+os = Linux (6.8.0-51-generic; amd64) (en_US)
+process = 36356@rovi-hp
+Classpath = /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/bin/tools/ws-server.jar
+Java Library path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+********************************************************************************
+[2/12/25, 14:34:37:224 ART] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[2/12/25, 14:34:37:697 ART] 0000002b com.ibm.ws.config.xml.internal.ServerXMLConfiguration        A CWWKG0093A: Processing configuration drop-ins resource: /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml
+[2/12/25, 14:34:37:770 ART] 00000031 com.ibm.ws.logging.internal.TraceSpecification               I TRAS0018I: The trace state has been changed. The new trace state is *=info:com.ibm.ws.security.*=all.
+[2/12/25, 14:34:37:898 ART] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 0.871 seconds
+[2/12/25, 14:34:37:918 ART] 00000035 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[2/12/25, 14:34:39:547 ART] 00000028 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0007I: The security service is starting...
+[2/12/25, 14:34:39:802 ART] 0000002b com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[2/12/25, 14:34:39:852 ART] 00000031 com.ibm.ws.app.manager.AppMessageHelper                      E CWWKZ0013E: It is not possible to start two applications called guide-rest-intro.
+[2/12/25, 14:34:40:165 ART] 0000002b rty.security.mp.jwt.v21.config.impl.MpConfigProxyServiceImpl I CWWKS5786I: The MicroProfile JWT version 2.1 mpConfigProxy was processed successfully.
+[2/12/25, 14:34:40:244 ART] 00000029 com.ibm.ws.cache.ServerCache                                 I DYNA1001I: WebSphere Dynamic Cache instance named baseCache initialized successfully.
+[2/12/25, 14:34:40:246 ART] 00000029 com.ibm.ws.cache.ServerCache                                 I DYNA1071I: The cache provider default is being used.
+[2/12/25, 14:34:40:247 ART] 00000029 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[2/12/25, 14:34:40:272 ART] 0000002c org.jboss.weld.Version                                       I WELD-000900: 5.1.1 (SP2)
+[2/12/25, 14:34:40:365 ART] 00000031 com.ibm.ws.ssl.config.WSKeyStore                             I CWPKI0802I: Creating the SSL certificate. This may take a few seconds.
+[2/12/25, 14:34:40:561 ART] 0000003a com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            I CWWKS4103I: Creating the LTPA keys. This may take a few seconds.
+[2/12/25, 14:34:40:718 ART] 00000028 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1123I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been activated. 
+[2/12/25, 14:34:42:294 ART] 0000003a com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            A CWWKS4104A: LTPA keys created in 1.733 seconds. LTPA key file: /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/resources/security/ltpa.keys
+[2/12/25, 14:34:42:319 ART] 0000003a com.ibm.ws.security.token.ltpa.internal.LTPAKeyCreateTask    I CWWKS4105I: LTPA configuration is ready after 1.824 seconds.
+[2/12/25, 14:34:42:321 ART] 00000031 com.ibm.ws.ssl.config.WSKeyStore                             A CWPKI0803A: SSL certificate created in 1.956 seconds. SSL key file: /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/resources/security/key.p12
+[2/12/25, 14:34:42:322 ART] 00000031 com.ibm.ws.ssl.config.WSKeyStore                             I Successfully loaded default keystore: /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/resources/security/key.p12 of type: PKCS12
+[2/12/25, 14:34:42:476 ART] 00000028 com.ibm.ws.security.jaspi.AuthConfigFactoryWrapper           I CWWKS1655I: The default Java Authentication SPI for Containers (JASPIC) AuthConfigFactory class com.ibm.ws.security.jaspi.ProviderRegistry is being used because the Java security property authconfigprovider.factory is not set. 
+[2/12/25, 14:34:42:497 ART] 00000031 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtServiceImpl   I CWWKS5500I: The MicroProfile JWT configuration [MicroProfileJwtService] was successfully processed.
+[2/12/25, 14:34:42:544 ART] 00000031 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5500I: The MicroProfile JWT configuration [defaultMpJwt] was successfully processed.
+[2/12/25, 14:34:42:549 ART] 00000031 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5500I: The MicroProfile JWT configuration [jwtConfig] was successfully processed.
+[2/12/25, 14:34:42:642 ART] 00000028 com.ibm.ws.security.jwt.internal.ConsumerImpl                I CWWKS6012I: The JSON Web Token (JWT) consumer service is available.
+[2/12/25, 14:34:42:899 ART] 00000028 com.ibm.ws.security.jwt.web.JwtEndpointServices              I CWWKS6002I: The JSON Web Token (JWT) endpoint service is available.
+[2/12/25, 14:34:43:099 ART] 0000003a com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application guide-rest-intro.
+[2/12/25, 14:34:43:100 ART] 0000003a bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The guide-rest-intro application is using the loose application definition at the /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/apps/guide-rest-intro.war.xml location.
+[2/12/25, 14:34:43:388 ART] 0000003b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: io.openliberty.security.jwt.internal.
+[2/12/25, 14:34:43:391 ART] 0000003b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module io.openliberty.security.jwt.internal has been bound to default_host.
+[2/12/25, 14:34:43:392 ART] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/jwt/
+[2/12/25, 14:34:43:426 ART] 00000038 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[2/12/25, 14:34:43:451 ART] 00000039 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/jwt
+[2/12/25, 14:34:43:461 ART] 00000039 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[2/12/25, 14:34:43:509 ART] 00000039 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[2/12/25, 14:34:43:700 ART] 00000038 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[2/12/25, 14:34:46:395 ART] 0000003a org.eclipse.jnosql.mapping.reflection.ClassGraphClassScanner I The following repositories are not supported: []
+[2/12/25, 14:34:47:126 ART] 0000003a org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Processing Key-Value extension: 0 databases crud 1 found
+[2/12/25, 14:34:47:127 ART] 0000003a org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Processing repositories as a Key-Value implementation: [interface io.openliberty.guides.repositories.UsersRepository]
+[2/12/25, 14:34:47:127 ART] 0000003a org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Ignoring custom repositories as a Key-Value implementation: []
+[2/12/25, 14:34:47:534 ART] 0000003a com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: API-CRM.
+[2/12/25, 14:34:47:535 ART] 0000003a com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module API-CRM has been bound to default_host.
+[2/12/25, 14:34:47:535 ART] 0000003a com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/guide-rest-intro/
+[2/12/25, 14:34:47:537 ART] 00000037 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/guide-rest-intro
+[2/12/25, 14:34:47:537 ART] 00000037 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[2/12/25, 14:34:47:568 ART] 00000037 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application guide-rest-intro started in 4.468 seconds.
+[2/12/25, 14:34:47:573 ART] 00000038 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[2/12/25, 14:34:47:666 ART] 00000035 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
+[2/12/25, 14:34:47:704 ART] 00000035 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint-ssl has been started and is now listening for requests on host localhost  (IPv4: 127.0.0.1) port 9443.
+[2/12/25, 14:34:47:788 ART] 00000035 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [appSecurity-5.0, cdi-4.0, distributedMap-1.0, expressionLanguage-5.0, jndi-1.0, jsonb-3.0, jsonp-2.1, jwt-1.0, mpConfig-3.1, mpJwt-2.1, restfulWS-3.1, restfulWSClient-3.1, servlet-6.0, ssl-1.0, transportSecurity-1.0].
+[2/12/25, 14:34:47:788 ART] 00000035 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 9.892 seconds.
+[2/12/25, 14:34:47:789 ART] 00000035 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 10.762 seconds.
+[2/12/25, 14:34:48:477 ART] 00000037 org.jboss.resteasy.resteasy_jaxrs.i18n                       I RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class io.openliberty.guides.resources.SystemApplication$Proxy$_$$_WeldClientProxy
+[2/12/25, 14:34:48:546 ART] 00000037 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [guide-rest-intro] [/guide-rest-intro] [io.openliberty.guides.resources.SystemApplication]: Initialization successful.
+[2/12/25, 14:34:49:806 ART] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/guide-rest-intro/
+[2/12/25, 14:34:49:809 ART] 0000003b com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [guide-rest-intro] [/guide-rest-intro] [io.openliberty.guides.resources.SystemApplication]: Destroy successful.
+[2/12/25, 14:34:49:832 ART] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application guide-rest-intro has stopped successfully.
+[2/12/25, 14:34:49:839 ART] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application guide-rest-intro.
+[2/12/25, 14:34:49:840 ART] 0000003b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The guide-rest-intro application is using the loose application definition at the /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/apps/guide-rest-intro.war.xml location.
+[2/12/25, 14:34:49:860 ART] 0000005f com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[2/12/25, 14:34:51:790 ART] 0000003b org.eclipse.jnosql.mapping.reflection.ClassGraphClassScanner I The following repositories are not supported: []
+[2/12/25, 14:34:52:102 ART] 0000003b org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Processing Key-Value extension: 0 databases crud 1 found
+[2/12/25, 14:34:52:102 ART] 0000003b org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Processing repositories as a Key-Value implementation: [interface io.openliberty.guides.repositories.UsersRepository]
+[2/12/25, 14:34:52:102 ART] 0000003b org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Ignoring custom repositories as a Key-Value implementation: []
+[2/12/25, 14:34:52:231 ART] 0000003b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: API-CRM.
+[2/12/25, 14:34:52:231 ART] 0000003b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module API-CRM has been bound to default_host.
+[2/12/25, 14:34:52:231 ART] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/guide-rest-intro/
+[2/12/25, 14:34:52:232 ART] 00000037 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/guide-rest-intro
+[2/12/25, 14:34:52:232 ART] 00000037 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[2/12/25, 14:34:52:241 ART] 00000037 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application guide-rest-intro updated in 2.401 seconds.
+[2/12/25, 14:34:52:258 ART] 00000064 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[2/12/25, 14:34:52:311 ART] 00000037 org.jboss.resteasy.resteasy_jaxrs.i18n                       I RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class io.openliberty.guides.resources.SystemApplication$Proxy$_$$_WeldClientProxy
+[2/12/25, 14:34:52:323 ART] 00000037 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [guide-rest-intro] [/guide-rest-intro] [io.openliberty.guides.resources.SystemApplication]: Initialization successful.
+[2/12/25, 14:34:59:963 ART] 00000035 org.mongodb.driver                                           W SLF4J not found on the classpath.  Logging is disabled for the 'org.mongodb.driver' component
+[2/12/25, 14:35:40:991 ART] 0000003a com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/guide-rest-intro/
+[2/12/25, 14:35:40:992 ART] 0000003a com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [guide-rest-intro] [/guide-rest-intro] [io.openliberty.guides.resources.SystemApplication]: Destroy successful.
+[2/12/25, 14:35:40:997 ART] 0000003a com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application guide-rest-intro has stopped successfully.
+[2/12/25, 14:35:41:001 ART] 0000003a com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application guide-rest-intro.
+[2/12/25, 14:35:41:001 ART] 0000003a bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The guide-rest-intro application is using the loose application definition at the /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/apps/guide-rest-intro.war.xml location.
+[2/12/25, 14:35:41:018 ART] 00000064 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[2/12/25, 14:35:42:302 ART] 0000003a org.eclipse.jnosql.mapping.reflection.ClassGraphClassScanner I The following repositories are not supported: []
+[2/12/25, 14:35:42:475 ART] 0000003a org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Processing Key-Value extension: 0 databases crud 1 found
+[2/12/25, 14:35:42:476 ART] 0000003a org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Processing repositories as a Key-Value implementation: [interface io.openliberty.guides.repositories.UsersRepository]
+[2/12/25, 14:35:42:476 ART] 0000003a org.eclipse.jnosql.mapping.keyvalue.spi.KeyValueExtension    I Ignoring custom repositories as a Key-Value implementation: []
+[2/12/25, 14:35:42:572 ART] 0000003a com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: API-CRM.
+[2/12/25, 14:35:42:573 ART] 0000003a com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module API-CRM has been bound to default_host.
+[2/12/25, 14:35:42:573 ART] 0000003a com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/guide-rest-intro/
+[2/12/25, 14:35:42:573 ART] 00000064 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/guide-rest-intro
+[2/12/25, 14:35:42:573 ART] 00000064 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[2/12/25, 14:35:42:580 ART] 00000064 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application guide-rest-intro updated in 1.579 seconds.
+[2/12/25, 14:35:42:592 ART] 00000035 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[2/12/25, 14:35:42:615 ART] 00000064 org.jboss.resteasy.resteasy_jaxrs.i18n                       I RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class io.openliberty.guides.resources.SystemApplication$Proxy$_$$_WeldClientProxy
+[2/12/25, 14:35:42:621 ART] 00000064 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [guide-rest-intro] [/guide-rest-intro] [io.openliberty.guides.resources.SystemApplication]: Initialization successful.
+[2/12/25, 14:35:48:007 ART] 00000060 org.mongodb.driver                                           W SLF4J not found on the classpath.  Logging is disabled for the 'org.mongodb.driver' component
+[2/12/25, 14:51:24:386 ART] 0000001d com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: The server defaultServer is stopping because the JVM is exiting.
+[2/12/25, 14:51:24:391 ART] 000000a8 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[2/12/25, 14:51:24:395 ART] 00000066 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint-ssl has stopped listening for requests on host localhost  (IPv4: 127.0.0.1) port 9443.
+[2/12/25, 14:51:24:396 ART] 00000066 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
+[2/12/25, 14:51:24:396 ART] 00000066 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/jwt/
+[2/12/25, 14:51:24:396 ART] 00000066 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/guide-rest-intro/
+[2/12/25, 14:51:24:501 ART] 0000001e com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Wednesday, February 12, 2025 at 2:51 PM. The server defaultServer is shutting down.
+[2/12/25, 14:51:25:398 ART] 000000a8 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[2/12/25, 14:51:25:426 ART] 00000037 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application guide-rest-intro has stopped successfully.
+[2/12/25, 14:51:25:470 ART] 000000a8 rty.security.mp.jwt.v21.config.impl.MpConfigProxyServiceImpl I CWWKS5788I: The MicroProfile JWT version 2.1 mpConfigProxy was deactivated successfully.
+[2/12/25, 14:51:25:471 ART] 000000a8 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5502I: The MicroProfile JWT configuration [defaultMpJwt] was successfully deactivated.
+[2/12/25, 14:51:25:472 ART] 000000a8 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtConfigImpl    I CWWKS5502I: The MicroProfile JWT configuration [jwtConfig] was successfully deactivated.
+[2/12/25, 14:51:25:472 ART] 000000a8 com.ibm.ws.security.mp.jwt.impl.MicroProfileJwtServiceImpl   I CWWKS5502I: The MicroProfile JWT configuration [MicroProfileJwtService] was successfully deactivated.
+[2/12/25, 14:51:25:506 ART] 000000a8 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1124I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been deactivated. 
+[2/12/25, 14:51:25:508 ART] 000000a8 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0009I: The security service has stopped.
+[2/12/25, 14:51:25:638 ART] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 16 minutes, 48.612 seconds.

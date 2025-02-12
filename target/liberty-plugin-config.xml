@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<liberty-plugin-config>
+    <installDirectory>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp</installDirectory>
+    <assemblyArtifact>
+        <groupId>io.openliberty</groupId>
+        <artifactId>openliberty-kernel</artifactId>
+        <version>25.0.0.1</version>
+        <type>zip</type>
+    </assemblyArtifact>
+    <assemblyArchive>/home/rovi/.m2/repository/io/openliberty/openliberty-kernel/25.0.0.1/openliberty-kernel-25.0.0.1.zip</assemblyArchive>
+    <assemblyInstallDirectory>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty</assemblyInstallDirectory>
+    <refresh>false</refresh>
+    <serverDirectory>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer</serverDirectory>
+    <userDirectory>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr</userDirectory>
+    <serverOutputDirectory>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer</serverOutputDirectory>
+    <serverName>defaultServer</serverName>
+    <projectType>war</projectType>
+    <projectCompileDependency>com.fasterxml.jackson.core:jackson-databind:2.15.2</projectCompileDependency>
+    <projectCompileDependency>com.fasterxml.jackson.core:jackson-annotations:2.15.2</projectCompileDependency>
+    <projectCompileDependency>com.fasterxml.jackson.core:jackson-core:2.15.2</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:mongodb-driver-sync:5.2.1</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:bson:5.2.1</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:mongodb-driver-core:5.2.1</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:bson-record-codec:5.2.1</projectCompileDependency>
+    <projectCompileDependency>jakarta.data:jakarta.data-api:1.0.0</projectCompileDependency>
+    <projectCompileDependency>jakarta.nosql:jakarta.nosql-api:1.0.0-M1</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.mapping:jnosql-mapping-key-value:1.1.4</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.communication:jnosql-communication-key-value:1.1.4</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.communication:jnosql-communication-query:1.1.4</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.communication:jnosql-communication-core:1.1.4</projectCompileDependency>
+    <projectCompileDependency>org.antlr:antlr4-runtime:4.13.2</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.mapping:jnosql-mapping-core:1.1.4</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.mapping:jnosql-mapping-api-core:1.1.4</projectCompileDependency>
+    <projectCompileDependency>org.eclipse.jnosql.mapping:jnosql-mapping-reflection:1.1.4</projectCompileDependency>
+    <projectCompileDependency>io.github.classgraph:classgraph:4.8.179</projectCompileDependency>
+    <configDirectory>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/src/main/liberty/config</configDirectory>
+    <configFile>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/src/main/liberty/config/server.xml</configFile>
+    <bootstrapPropertiesFile>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/src/main/liberty/config/bootstrap.properties</bootstrapPropertiesFile>
+    <appsDirectory>apps</appsDirectory>
+    <looseApplication>true</looseApplication>
+    <stripVersion>false</stripVersion>
+    <installAppPackages>project</installAppPackages>
+    <applicationFilename>guide-rest-intro.war.xml</applicationFilename>
+    <installAppsConfigDropins>/home/rovi/Desktop/java-google/java-rest-orm/back-oauth/target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/install_apps_configuration_1491924271.xml</installAppsConfigDropins>
+</liberty-plugin-config>

@@ -84,6 +84,24 @@
             <artifactId>mongodb-driver-sync</artifactId>
             <version>5.2.1</version>
         </dependency>
+        <!-- Jakarta Data -->
+        <dependency>
+            <groupId>jakarta.data</groupId>
+            <artifactId>jakarta.data-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- Jakarta NoSQL -->
+        <dependency>
+            <groupId>jakarta.nosql</groupId>
+            <artifactId>jakarta.nosql-api</artifactId>
+            <version>1.0.0-M1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>jnosql-mapping-key-value</artifactId>
+            <version>1.1.4</version>
+        </dependency>
+
         <!-- SSL dependency-->
         <dependency>
             <groupId>com.ibm.websphere.appserver.api</groupId>
@@ -92,11 +110,11 @@
             <scope>provided</scope>
         </dependency>
         <!-- JWT BUILDER -->
-                <dependency>
-          <groupId>com.ibm.websphere.appserver.api</groupId>
-          <artifactId>com.ibm.websphere.appserver.api.jwt</artifactId>
-          <version>1.1.96</version>
-          <scope>provided</scope>
+        <dependency>
+            <groupId>com.ibm.websphere.appserver.api</groupId>
+            <artifactId>com.ibm.websphere.appserver.api.jwt</artifactId>
+            <version>1.1.96</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
