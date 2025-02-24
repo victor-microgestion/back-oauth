@@ -26,7 +26,7 @@ import io.openliberty.guides.providers.GoogleOAuthProvider;
 import io.openliberty.guides.providers.OAuthProvider;
 import io.openliberty.guides.services.LogoutService;
 import io.openliberty.guides.services.OAuthService;
-import io.openliberty.guides.services.UserService;
+//import io.openliberty.guides.services.UserService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -38,8 +38,8 @@ public class AuthResource {
 
     private final LogoutService logoutService = new LogoutService();
 
-    @Inject
-    UserService userService;
+    /*@Inject
+    UserService userService;*/
 
     @GET
     @Path("/logout")
@@ -82,7 +82,8 @@ public class AuthResource {
             String email = (String) userInfo.get("email");
 
             // Verificar si el usuario ya existe y obtenerlo si es así
-            User user = userService.userExists(email);
+            //User user = userService.userExists(email);
+            User user = null;
             if (user == null) {
                 // Crear un objeto User con los nuevos atributos
                 user = new User(
@@ -93,7 +94,7 @@ public class AuthResource {
                 );
 
                 // Guardar el usuario en la base de datos
-                userService.saveUser(user);
+                //userService.saveUser(user);
                 System.out.println("Nuevo usuario creado: " + user);
             } else {
                 System.out.println("El usuario ya existe en la base de datos: " + email);

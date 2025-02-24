@@ -1,13 +1,17 @@
 package io.openliberty.guides.resources;
 
-import io.openliberty.guides.models.User;
-import io.openliberty.guides.repositories.UserRepository;
-import io.openliberty.guides.services.UserService;
+import io.openliberty.guides.models.Users;
+import io.openliberty.guides.repositories.UsersRepository;
 
+import java.util.Optional;
+
+import org.bson.types.ObjectId;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import jakarta.annotation.security.RolesAllowed;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
 import jakarta.json.JsonArray;
 import jakarta.ws.rs.*;
@@ -19,36 +23,33 @@ import jakarta.ws.rs.core.Response;
 @Path("/users")
 public class UserResource {
 
-    @Inject
+    /*@Inject
     UserService userService;
 
-    /*@Inject
+    @Inject
     @Claim("groups")
     private JsonArray roles;*/
 
     /*@Inject
     private JsonWebToken jwt;*/
     @Inject
-    UserRepository userRepository;
+    UsersRepository usersRepository;
     // GET: Obtener todos los usuarios
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     //@RolesAllowed({ "admin" })
     public Response getUsers(@Context HttpHeaders headers) {
-      //  System.out.println("Roles: " + roles);
-        //System.out.println("JWT: " + jwt);
-        //System.out.println(userRepository.findAll());
-        return Response.ok(userRepository.findByEmail("victor_villafane@microgestion.com")).build();
+        return Response.ok(usersRepository.findAll().toList()).build();
     }
 
     // GET: Obtener un usuario por ID
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed({ "admin" })
+    //@RolesAllowed({ "admin" })
     public Response getUserById(@PathParam("id") String id) {
-        User user = userService.getUserById(id);
+        Optional<Users> user = usersRepository.findById(id);
         if (user != null) {
             return Response.ok(user).build();
         } else {
@@ -62,9 +63,9 @@ public class UserResource {
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    @RolesAllowed({ "admin" })
-    public Response createUser(User user) {
-        userService.saveUser(user);
+    // @RolesAllowed({ "admin" })
+    public Response createUser(Users user) {
+        usersRepository.save(user);
         return Response.status(Response.Status.CREATED)
                 .entity("Usuario creado: " + user.getEmail())
                 .build();
@@ -74,15 +75,34 @@ public class UserResource {
     @PUT
     @Path("/{email}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @RolesAllowed({ "admin" })
-    public Response updateUser(@PathParam("email") String email, User updatedUser) {
-        boolean isUpdated = userService.updateUser(email, updatedUser);
-        if (isUpdated) {
-            return Response.ok("Usuario actualizado: " + email).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND)
+    @Produces(MediaType.APPLICATION_JSON)
+    // @RolesAllowed({ "admin" })
+    public Response updateUser(@PathParam("email") String email, Users updatedUser) {
+        try {
+            Users existingUser = usersRepository.findByEmail(email);
+            if (existingUser != null) {
+                // Mantener el ID original
+                updatedUser.setId(existingUser.getId());
+                
+                // Actualizar los campos
+                existingUser.setName(updatedUser.getName());
+                existingUser.setEmail(updatedUser.getEmail());
+                existingUser.setProvider(updatedUser.getProvider());
+                existingUser.setRole(updatedUser.getRole());
+                
+                // Guardar los cambios
+                usersRepository.save(existingUser);
+                
+                return Response.ok(existingUser).build();
+            } else {
+                return Response.status(Response.Status.NOT_FOUND)
                     .entity("Usuario no encontrado con email: " + email)
                     .build();
+            }
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                .entity("Error al actualizar usuario: " + e.getMessage())
+                .build();
         }
     }
 
@@ -91,8 +111,9 @@ public class UserResource {
     @Path("/{email}")
     @RolesAllowed({ "admin" })
     public Response deleteUserByEmail(@PathParam("email") String email) {
-        boolean isDeleted = userService.deleteUserByEmail(email);
-        if (isDeleted) {
+        Users user = usersRepository.findByEmail(email);
+        if (user != null) {
+            usersRepository.delete(user);
             return Response.ok("Usuario eliminado: " + email).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND)
@@ -106,8 +127,9 @@ public class UserResource {
     @Path("/id/{id}")
     @RolesAllowed({ "admin" })
     public Response deleteUserById(@PathParam("id") String id) {
-        boolean isDeleted = userService.deleteUserById(id);
-        if (isDeleted) {
+        Optional<Users> user = usersRepository.findById(id);        
+        if (user != null) {
+            usersRepository.delete(user.get());
             return Response.ok("Usuario eliminado por ID: " + id).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND)
