@@ -3,7 +3,6 @@ package io.openliberty.guides.models;
 import org.bson.types.ObjectId;
 import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
 
-import io.openliberty.guides.config.ObjectIdAdapter;
 import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import jakarta.nosql.Column;
 import jakarta.nosql.Convert;
@@ -14,7 +13,6 @@ import jakarta.nosql.Id;
 public class Users {
 
     @Id
-    @Convert(ObjectIdConverter.class)
     private String id;
     
     @Column
@@ -30,12 +28,12 @@ public class Users {
     private String role;
     
     // Getters y setters
-    public String getId() {
-        return id;
+    public ObjectId getId() {
+        return new ObjectId(id);
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(ObjectId id) {
+        this.id = id.toHexString();
     }
 
     public String getName() {

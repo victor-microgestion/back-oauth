@@ -12,6 +12,14 @@ public class UsersDTO {
 
     private String role;
 
+    public UsersDTO(String id, String name, String email, String provider, String role) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.provider = provider;
+        this.role = role;
+    }
+
     public String getId() {
         return id;
     }

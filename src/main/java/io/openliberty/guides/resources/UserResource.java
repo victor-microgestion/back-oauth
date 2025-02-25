@@ -1,13 +1,27 @@
 package io.openliberty.guides.resources;
 
+import io.openliberty.guides.models.User;
 import io.openliberty.guides.models.Users;
+import io.openliberty.guides.models.dto.UsersDTO;
 import io.openliberty.guides.repositories.UsersRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
+import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.inject.se.SeContainer;
@@ -23,33 +37,47 @@ import jakarta.ws.rs.core.Response;
 @Path("/users")
 public class UserResource {
 
-    /*@Inject
-    UserService userService;
+    /*
+     * @Inject
+     * UserService userService;
+     * 
+     * @Inject
+     * 
+     * @Claim("groups")
+     * private JsonArray roles;
+     */
 
-    @Inject
-    @Claim("groups")
-    private JsonArray roles;*/
-
-    /*@Inject
-    private JsonWebToken jwt;*/
+    /*
+     * @Inject
+     * private JsonWebToken jwt;
+     */
     @Inject
     UsersRepository usersRepository;
     // GET: Obtener todos los usuarios
+
+    @Inject
+    MongoClient mongoClient;
+
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    //@RolesAllowed({ "admin" })
+    // @RolesAllowed({ "admin" })
     public Response getUsers(@Context HttpHeaders headers) {
-        return Response.ok(usersRepository.findAll().toList()).build();
+        List<Users> users = usersRepository.findAll().toList();
+        List<UsersDTO> usersDTO = users.stream()
+                .map(user -> new UsersDTO(user.getId().toHexString(), user.getName(), user.getEmail(),
+                        user.getProvider(), user.getRole()))
+                .collect(Collectors.toList());
+        return Response.ok(usersDTO).build();
     }
 
     // GET: Obtener un usuario por ID
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    //@RolesAllowed({ "admin" })
+    // @RolesAllowed({ "admin" })
     public Response getUserById(@PathParam("id") String id) {
-        Optional<Users> user = usersRepository.findById(id);
+        Optional<Users> user = usersRepository.findById(new ObjectId(id));
         if (user != null) {
             return Response.ok(user).build();
         } else {
@@ -79,30 +107,37 @@ public class UserResource {
     // @RolesAllowed({ "admin" })
     public Response updateUser(@PathParam("email") String email, Users updatedUser) {
         try {
-            Users existingUser = usersRepository.findByEmail(email);
-            if (existingUser != null) {
-                // Mantener el ID original
-                updatedUser.setId(existingUser.getId());
-                
-                // Actualizar los campos
-                existingUser.setName(updatedUser.getName());
-                existingUser.setEmail(updatedUser.getEmail());
-                existingUser.setProvider(updatedUser.getProvider());
-                existingUser.setRole(updatedUser.getRole());
-                
-                // Guardar los cambios
-                usersRepository.save(existingUser);
-                
-                return Response.ok(existingUser).build();
-            } else {
-                return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Usuario no encontrado con email: " + email)
-                    .build();
-            }
+        Users existingUser = usersRepository.findByEmail(email);
+        if (existingUser == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        existingUser.setName(updatedUser.getName());
+        existingUser.setEmail(updatedUser.getEmail());
+        existingUser.setProvider(updatedUser.getProvider());
+        existingUser.setRole(updatedUser.getRole());
+
+        Bson filter = Filters.eq("_id", existingUser.getId());
+        Bson update = Updates.combine(
+            Updates.set("name", existingUser.getName()),
+            Updates.set("email", existingUser.getEmail()),
+            Updates.set("provider", existingUser.getProvider()),
+            Updates.set("role", existingUser.getRole())
+        );
+
+        UpdateResult result = mongoClient.getDatabase("User")
+            .getCollection("Users")
+            .updateOne(filter, update);
+
+        if (result.getModifiedCount() > 0) {
+            return Response.ok(usersRepository.findById(existingUser.getId())).build();
+        } else {
+            return Response.status(Response.Status.NOT_MODIFIED).build();
+        }
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                .entity("Error al actualizar usuario: " + e.getMessage())
-                .build();
+                    .entity("Error al actualizar usuario: " + e.getMessage())
+                    .build();
         }
     }
 
@@ -127,7 +162,7 @@ public class UserResource {
     @Path("/id/{id}")
     @RolesAllowed({ "admin" })
     public Response deleteUserById(@PathParam("id") String id) {
-        Optional<Users> user = usersRepository.findById(id);        
+        Optional<Users> user = usersRepository.findById(new ObjectId(id));
         if (user != null) {
             usersRepository.delete(user.get());
             return Response.ok("Usuario eliminado por ID: " + id).build();
