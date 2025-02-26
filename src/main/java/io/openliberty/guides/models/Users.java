@@ -13,6 +13,7 @@ import jakarta.nosql.Id;
 public class Users {
 
     @Id
+    @Convert(ObjectIdConverter.class)
     private String id;
     
     @Column
@@ -28,12 +29,12 @@ public class Users {
     private String role;
     
     // Getters y setters
-    public ObjectId getId() {
-        return new ObjectId(id);
+    public String getId() {
+        return id;
     }
 
-    public void setId(ObjectId id) {
-        this.id = id.toHexString();
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

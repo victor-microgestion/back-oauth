@@ -9,6 +9,6 @@ import jakarta.data.repository.BasicRepository;
 import jakarta.data.repository.Repository;
 
 @Repository
-public interface UsersRepository extends BasicRepository<Users, ObjectId> {
+public interface UsersRepository extends BasicRepository<Users, ObjectId>, UsersRepositoryCustom {
     Users findByEmail(String email);
 }

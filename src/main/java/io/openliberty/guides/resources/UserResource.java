@@ -65,7 +65,7 @@ public class UserResource {
     public Response getUsers(@Context HttpHeaders headers) {
         List<Users> users = usersRepository.findAll().toList();
         List<UsersDTO> usersDTO = users.stream()
-                .map(user -> new UsersDTO(user.getId().toHexString(), user.getName(), user.getEmail(),
+                .map(user -> new UsersDTO(user.getId(), user.getName(), user.getEmail(),
                         user.getProvider(), user.getRole()))
                 .collect(Collectors.toList());
         return Response.ok(usersDTO).build();
@@ -104,36 +104,23 @@ public class UserResource {
     @Path("/{email}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({ "admin" })
     public Response updateUser(@PathParam("email") String email, Users updatedUser) {
         try {
-        Users existingUser = usersRepository.findByEmail(email);
-        if (existingUser == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-
-        existingUser.setName(updatedUser.getName());
-        existingUser.setEmail(updatedUser.getEmail());
-        existingUser.setProvider(updatedUser.getProvider());
-        existingUser.setRole(updatedUser.getRole());
-
-        Bson filter = Filters.eq("_id", existingUser.getId());
-        Bson update = Updates.combine(
-            Updates.set("name", existingUser.getName()),
-            Updates.set("email", existingUser.getEmail()),
-            Updates.set("provider", existingUser.getProvider()),
-            Updates.set("role", existingUser.getRole())
-        );
-
-        UpdateResult result = mongoClient.getDatabase("User")
-            .getCollection("Users")
-            .updateOne(filter, update);
-
-        if (result.getModifiedCount() > 0) {
-            return Response.ok(usersRepository.findById(existingUser.getId())).build();
-        } else {
-            return Response.status(Response.Status.NOT_MODIFIED).build();
-        }
+            System.out.println("LLEGUE al metodo PUT");
+            boolean updated = usersRepository.updateByEmail(
+                email,
+                updatedUser.getName(),
+                updatedUser.getEmail(),
+                updatedUser.getProvider(),
+                updatedUser.getRole()
+            );
+            System.out.println("LLEGUE a pasar el repository");
+            if (updated) {
+                Users user = usersRepository.findByEmail(updatedUser.getEmail());
+                return Response.ok(user).build();
+            } else {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error al actualizar usuario: " + e.getMessage())
