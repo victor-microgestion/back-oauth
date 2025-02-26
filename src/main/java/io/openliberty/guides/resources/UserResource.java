@@ -68,7 +68,7 @@ public class UserResource {
                 .map(user -> new UsersDTO(user.getId(), user.getName(), user.getEmail(),
                         user.getProvider(), user.getRole()))
                 .collect(Collectors.toList());
-        return Response.ok(usersDTO).build();
+        return Response.ok(users).build();
     }
 
     // GET: Obtener un usuario por ID
