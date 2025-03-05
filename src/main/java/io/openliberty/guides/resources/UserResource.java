@@ -8,6 +8,8 @@ import io.openliberty.guides.repositories.UsersRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -23,7 +25,9 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.UpdateResult;
 
+import jakarta.annotation.Resource;
 import jakarta.annotation.security.RolesAllowed;
+import jakarta.enterprise.concurrent.ManagedExecutorService;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
@@ -55,20 +59,18 @@ public class UserResource {
     UsersRepository usersRepository;
     // GET: Obtener todos los usuarios
 
-    @Inject
-    MongoClient mongoClient;
+    @Resource
+    ManagedExecutorService executorService; // Inyectamos ManagedExecutorService
 
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     // @RolesAllowed({ "admin" })
-    public Response getUsers(@Context HttpHeaders headers) {
-        List<Users> users = usersRepository.findAll().toList();
-        List<UsersDTO> usersDTO = users.stream()
-                .map(user -> new UsersDTO(user.getId(), user.getName(), user.getEmail(),
-                        user.getProvider(), user.getRole()))
-                .collect(Collectors.toList());
-        return Response.ok(users).build();
+    public CompletionStage<Response> getUsers(@Context HttpHeaders headers) {
+        return CompletableFuture.supplyAsync(() -> {
+            List<Users> users = usersRepository.findAll().toList();
+            return Response.ok(users).build();
+        }, executorService); // Ejecutar en hilo separado
     }
 
     // GET: Obtener un usuario por ID
@@ -108,12 +110,11 @@ public class UserResource {
         try {
             System.out.println("LLEGUE al metodo PUT");
             boolean updated = usersRepository.updateByEmail(
-                email,
-                updatedUser.getName(),
-                updatedUser.getEmail(),
-                updatedUser.getProvider(),
-                updatedUser.getRole()
-            );
+                    email,
+                    updatedUser.getName(),
+                    updatedUser.getEmail(),
+                    updatedUser.getProvider(),
+                    updatedUser.getRole());
             System.out.println("LLEGUE a pasar el repository");
             if (updated) {
                 Users user = usersRepository.findByEmail(updatedUser.getEmail());
